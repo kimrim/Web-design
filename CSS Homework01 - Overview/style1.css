@@ -1,0 +1,44 @@
+body{
+background-color: #595959;
+font-family: Arial;
+}
+
+table th {
+text-align:left;
+font-size:22px;
+color:#A0A0A0;
+}
+
+td {padding:6px}
+
+td:first-child {
+font-style:italic;
+color:#D5D5D5
+}
+
+td:nth-child(2) {color:#E6E68A}
+
+#red {color:red;
+font-weight:bold
+}
+
+#orange {
+color:#E65C00;
+font-weight:bold
+}
+
+td.greyed {color:#A0A0A0}
+
+a {text-decoration:none;
+color:#E6E68A
+}
+
+#greendot {
+position:relative;
+top: 15px;
+border-radius: 50%;
+width: 12px;
+height: 12px;
+background-color: #71b47a;
+}
+

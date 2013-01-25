@@ -1,0 +1,164 @@
+<html>
+<head>
+<style>
+table
+{
+border-collapse:collapse; width:800px;
+}
+thead, tfoot
+{
+background-color:rgb(150,200,200);
+}
+#highlight
+{
+border:1px solid red;
+}
+input.img
+{
+height:18px; width:18px;
+}
+#right
+{
+display:inline;
+}
+
+</style>
+</head>
+<body>
+	<form>
+		<table border="1">
+			<thead>
+				<tr>
+					<td colspan="6">Some text here</td>
+				</tr>
+				<tr>
+					<td>ProductID</td>
+					<td>Product Name</td>
+					<td>Unit Price</td>
+					<td>Quantity pe unit</td>
+					<td>Units in stock</td>
+					<td>Discontinued</td>
+				</tr>
+				<tr>
+					<td><input type="number" name="id-num" size="4"></td>
+					<td><input type="text" name="product" size="16"></td>
+					<td><input type="number" name="price" size="8"> <input class="img" type="image" name="filter" src="filter.jpg"></td>
+					<td><input type="text" name="quantity-pu" size="12"></td>
+					<td><input type="number" name="stock-unit" size="8"> <input class="img" type="image" name="filter" src="filter.jpg"></td>
+					<td><input type="checkbox" name="check"> <input class="img" type="image" name="filter" src="filter.jpg"></td>
+				<tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>Tea</td>
+					<td>$10.00</td>
+					<td>10 boxes x 20 bags</td>
+					<td>30</td>
+					<td><input type="checkbox" name="check"></td>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="6">
+						<input class="img" type="image" name="home" src="arrow-left.jpg"/>
+						<input class="img" type="image" name="previous" src="previous.jpg"/>
+						<a id="highlight" href="#">1</a> 
+						<a href="#">2</a> 
+						<a href="#">3</a>
+						<a href="#">4</a>
+						<a href="#">5</a>
+						<a href="#">6</a>
+						<a href="#">7</a>
+						<a href="#">8</a>
+						<input class="img" type="image" name="next" src="next.jpg"/>
+						<input class="img" type="image" name="end" src="arrow-right.jpg"/>
+						&nbsp
+						Page size:
+						<select name="pagesize">
+							<option value="value1" selected="selected">10</option>
+							<option value="value2">20</option>
+							<option value="value2">30</option>
+							<option value="value2">40</option>
+						</select>
+							
+					</td>
+					
+				</tr>
+			</tfoot>
+		</table>
+	</form>
+</body>
+</html>

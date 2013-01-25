@@ -1,0 +1,30 @@
+body {
+margin:0;
+padding:0;
+background:#1E3741;
+}
+
+header nav {height:60px; width:900px}
+
+header nav ul {list-style-type:none}
+
+header nav ul li {
+	float:left;
+	border:1px solid black;
+	background:#4B5F67;
+	color:#88ACB6;
+	}
+	
+	header nav ul li a {
+		text-decoration:none;
+		display:block;
+		height:35px;
+		width:140px;
+		text-align:center;
+		margin-top:10px;
+	}
+	
+aside {
+	float:left;
+	border:1px solid black;
+}

@@ -1,0 +1,104 @@
+<html>
+<head>
+<style>
+table#main
+{
+border:1px solid grey; border-collapse:collapse; width:500px;
+}
+td
+{
+border:1px solid grey; padding:3px;
+}
+td.label
+{
+text-align:right; width:150px; font-weight:bold;
+}
+input.stretch
+{
+width:90%
+}
+tfoot td
+{
+background-color:rgb(0,200,255); text-align:center;
+}
+
+</style>
+</head>
+<body>
+	
+	<form action="" method="get">
+		<table id="main">
+			<tbody>
+				<tr>
+					<td class="label">Last Name</td>
+					<td><input class="stretch" type="text" name="Lastname"></td>
+				</tr>
+				<tr>
+					<td class="label">First Name</td>
+					<td><input class="stretch" type="text" name="Firstname"></td>
+				</tr>
+				<tr>
+					<td class="label">Address</td>
+					<td><textarea rows="3" cols="35"></textarea></td>
+				</tr>
+				<tr>
+					<td class="label">City</td>
+					<td><input type="text" name="city" size="30">  <b>State<b><input type="text" name="state" size="6"></td>
+				</tr>
+				<tr>
+					<td class="label">Zip</td>
+					<td><input type="text" name="zip-code"></td>
+				</tr>
+				<tr>
+					<td class="label">Country</td>
+					<td><select name="country">
+						<option value="value1">Bulgaria</option>
+						<option value="value2">Canada</option>
+						<option value="value3">Bangladesh</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="label">Phone (country code, area code, number)</td>
+					<td>(+<input type="number" name="c-code" size="8"> ) <input type="number" name="a-code" size="8"> - <input type="number" name="num-code" size="16"></td>
+				</tr>
+				<tr>
+					<td class="label">E-mail</td>
+					<td><input class="stretch" type="email" name="e-mail"></td>
+				</tr>
+				<tr>
+					<td class="label">Birth date</td>
+					<td>Month<input type="number" name="birth-month" size="4">  Day<input type="number" name="birth-day" size="4">  Year<input type="number" name="birth-year" size="8"></td>
+				</tr>
+				<tr>
+					<td class="label">Gender</td>
+					<td><select name="gender">
+						<option value="value1">Male</option>
+						<option value="value2">Female</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="label">Starting date</td>
+					<td><input type="radio" name="start-date" value="Spring 2012">Spring 2012 <input type="radio" name="start-date" value="Summer 2012">Summer 2012</td>
+				</tr>
+				<tr>
+					<td class="label">Comments/Questions</td>
+					<td><textarea rows="5" cols="35"></textarea></td>
+				</tr>
+				
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="2">
+						<input type="submit" name="Submit-btn" value="Submit">
+						<input type="reset" name="reset-btn" value="Clear the form">
+					</td>
+				</tr>
+			</tfoot>
+			
+		</table>
+	</form>
+	
+</body>
+</html>

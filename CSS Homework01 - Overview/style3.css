@@ -1,0 +1,47 @@
+body {
+background-color:#AAAAAA;
+font-size:18px
+}
+
+header {
+color:white;
+font-size:24px;
+}
+
+header h1, header nav {text-align:center}
+
+ul{
+width: 95px;
+margin: 0 auto;
+}
+
+nav li {
+list-style-type:none;
+margin:0 auto
+}
+
+nav a {
+font-weight:bold;
+text-decoration:none;
+}
+
+nav li:nth-child(2){background-color:#DDDDDD}
+
+nav li:nth-child(4) {text-decoration:underline;}
+
+header h1:only-child {text-align:left}
+
+nav a {color:inherit}
+
+section a{
+text-decoration:none;
+color:inherit
+}
+
+footer {text-align:center}
+
+section footer {
+text-align:left;
+font-size:14px
+}
+

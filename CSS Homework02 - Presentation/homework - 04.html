@@ -1,0 +1,120 @@
+<DOCTYPE! html>
+<html>
+<head>
+	<link rel="stylesheet" href="style-04.css" />
+</head>
+<body>
+	<div id="wrapper">
+		<div id="icon"><img src="calc-icon.png" alt="calc" height="15px" /> Calculator</div>
+		<div id="windowsbtn">
+			<ul>
+				<li>_</li>
+				<li>[]</li>
+				<li>X</li>
+			</ul>
+		</div>
+		
+		<div id="in-frame">
+			<nav>
+				<ul>
+					<li><span>V</span>iew</li>
+					<li><span>E</span>dit</li>
+					<li><span>H</span>elp</li>
+				</ul>
+			</nav>			
+			
+			<section>
+				<div id="result"><br />6838538358</div>
+				<div id="binary">
+					<p><span>0000</span><span>0000</span><span>0000</span><span>0000</span><span>0000</span><span>0000</span><span>0000</span><span>0000</span></p>
+					<p><span>63</span><span>63</span><span>63</span></p>
+					<p><span>0000</span><span>0000</span><span>0000</span><span>0000</span><span>0000</span><span>0000</span><span>0000</span><span>0000</span></p>
+					<p><span>63</span><span>63</span><span>63</span></p>
+				</div>
+				
+				<div id="aside">
+					<fieldset>
+						<form action="">
+							<input type="radio" name="radiobtn"/>Hex
+							<br />									
+							<input type="radio" name="radiobtn"/>Dec 
+							<br />									
+							<input type="radio" name="radiobtn"/>Oct
+							<br />									
+							<input type="radio" name="radiobtn"/>Bin									
+						</form>
+					</fieldset>
+					<fieldset>
+						<form action="">
+							<input type="radio" name="radiobtn"/>Qword
+							<br />									
+							<input type="radio" name="radiobtn"/>Dword
+							<br />									
+							<input type="radio" name="radiobtn"/>Word
+							<br />									
+							<input type="radio" name="radiobtn"/>Byte									
+						</form>
+					</fieldset>
+				</div>	
+				
+				<div id="operations">
+					<button class="inactive" disabled></button>
+					<button class="active">Mod</button>
+					<button class="inactive" disabled>A</button>
+					<button class="active soft">MC</button>
+					<button class="active soft">MR</button>
+					<button class="active soft">MS</button>
+					<button class="active soft">M+</button>
+					<button class="active soft">M-</button>
+					
+					<button class="active">(</button>
+					<button class="active">)</button>
+					<button class="inactive" disabled>B</button>
+					<button class="active"><--</button>
+					<button class="active">CE</button>
+					<button class="active">C</button>
+					<button class="active">±</button>
+					<button class="inactive last" disabled>v</button>
+					
+					<button class="active">RoL</button>
+					<button class="active">RoR</button>
+					<button class="inactive" disabled>C</button>
+					<button class="active strong">7</button>
+					<button class="active strong">8</button>
+					<button class="active strong">9</button>
+					<button class="active">/</button>
+					<button class="inactive last" disabled>%</button>
+					
+					<button class="active">Or</button>
+					<button class="active">Xor</button>
+					<button class="inactive" disabled>D</button>
+					<button class="active strong">4</button>
+					<button class="active strong">5</button>
+					<button class="active strong">6</button>
+					<button class="active">*</button>
+					<button class="inactive last" disabled>1/x</button>
+					
+					<button class="active">Lsh</button>
+					<button class="active">Rsh</button>
+					<button class="inactive" disabled>E</button>
+					<button class="active strong">1</button>
+					<button class="active strong">2</button>
+					<button class="active strong">3</button>
+					<button class="active">-</button>
+					<button id="drow" class="active">=</button>
+					
+					<button class="active">Not</button>
+					<button class="active">And</button>
+					<button class="inactive" disabled>F</button>
+					<button id="dcol" class="active strong">0</button>
+					<button class="inactive last" disabled>,</button>
+					<button class="active">+</button>
+					
+				</div>
+				
+			</section>
+		</div>
+		
+	</div>
+</body>
+</html>

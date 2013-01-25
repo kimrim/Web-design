@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#content
+{
+float:left;
+}
+#aside
+{
+float:left;
+margin-left:20px;
+}
+#header
+{
+text-align:center;
+}
+img#mac
+{
+height:100px; width:160px;
+}
+table.nested
+{
+height:160px; width:300px;
+}
+table.slider
+{
+height:600px; width:200px;
+}
+
+
+</style>
+</head>
+<body>
+	<div id="header">
+		<h2> <a href="#">Apple</a> <a href="#">Toshiba</a> <a href="#">Lenovo</a> <a href="#">Dell</a> <a href="#">Asus</a> <a href="#">HP</a></h2>
+		<hr/>
+	</div>
+	<div id="content">
+		<fieldset>
+		<table>
+			<tr>
+				<td><fieldset class="inside">
+						<legend>Apple MacBook Pro</legend>
+							<table class="nested">
+								<tr>
+									<td rowspan="2"><img id="mac" src="MacBook.jpg"></td>
+									<td>64GB SSD</td>
+								</tr>
+								<tr>
+									<td>2GB DDR</td>
+								</tr>
+								<tr>
+									<td>1300 USD</td>
+									<td>Intel Core i5</td>
+								</tr>
+							</table>
+					</fieldset>
+				</td>
+				<td><fieldset class="inside">
+						<legend>Apple MacBook Pro</legend>
+							<table class="nested">
+								<tr>
+									<td rowspan="2"><img id="mac" src="MacBook.jpg"></td>
+									<td>64GB SSD</td>
+								</tr>
+								<tr>
+									<td>2GB DDR</td>
+								</tr>
+								<tr>
+									<td>1300 USD</td>
+									<td>Intel Core i5</td>
+								</tr>
+							</table>
+					</fieldset>
+				</td>
+			</tr>
+			<tr>
+				<td><fieldset class="inside">
+						<legend>Apple MacBook Pro</legend>
+							<table class="nested">
+								<tr>
+									<td rowspan="2"><img id="mac" src="MacBook.jpg"></td>
+									<td>64GB SSD</td>
+								</tr>
+								<tr>
+									<td>2GB DDR</td>
+								</tr>
+								<tr>
+									<td>1300 USD</td>
+									<td>Intel Core i5</td>
+								</tr>
+							</table>
+					</fieldset>
+				</td>
+				<td><fieldset class="inside">
+						<legend>Apple MacBook Pro</legend>
+							<table class="nested">
+								<tr>
+									<td rowspan="2"><img id="mac" src="MacBook.jpg"></td>
+									<td>64GB SSD</td>
+								</tr>
+								<tr>
+									<td>2GB DDR</td>
+								</tr>
+								<tr>
+									<td>1300 USD</td>
+									<td>Intel Core i5</td>
+								</tr>
+							</table>
+					</fieldset>
+				</td>
+			</tr>
+			<tr>
+				<td><fieldset class="inside">
+						<legend>Apple MacBook Pro</legend>
+							<table class="nested">
+								<tr>
+									<td rowspan="2"><img id="mac" src="MacBook.jpg"></td>
+									<td>64GB SSD</td>
+								</tr>
+								<tr>
+									<td>2GB DDR</td>
+								</tr>
+								<tr>
+									<td>1300 USD</td>
+									<td>Intel Core i5</td>
+								</tr>
+							</table>
+					</fieldset>
+				</td>
+				<td><fieldset class="inside">
+						<legend>Apple MacBook Pro</legend>
+							<table class="nested">
+								<tr>
+									<td rowspan="2"><img id="mac" src="MacBook.jpg"></td>
+									<td>64GB SSD</td>
+								</tr>
+								<tr>
+									<td>2GB DDR</td>
+								</tr>
+								<tr>
+									<td>1300 USD</td>
+									<td>Intel Core i5</td>
+								</tr>
+							</table>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
+		</fieldset>
+	</div>
+	<div id="aside">
+		<form>
+			<table class="slider">
+				<tr>
+					<td>Min price: <input type="range" name="price:" min="100" max="2000"></td>
+				</tr>
+				<tr>
+					<td>Max price: <input type="range" name="price:" min="100" max="2000"></td>
+				</tr>
+				<tr>
+					<td>Min RAM: <input type="range" name="RAM:" min="1 GB" max="16 GB"></td>
+				</tr>
+				<tr>
+					<td>Max RAM: <input type="range" name="RAM:" min="1 GB" max="16 GB"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

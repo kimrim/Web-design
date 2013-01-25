@@ -1,0 +1,50 @@
+
+body{
+	background:#EEEEEE;
+	font-family:Verdana, sans-serif;
+}
+
+header {
+	margin:10px 20px 30px;
+	font-size:1.3em
+}
+
+section article {
+	width:500px;
+	height:180px;
+	border:1px solid grey;
+	margin: 20px;
+	position:relative;
+	background:white;
+	font-size:0.8em;
+}
+
+	article img {
+		width:200px;
+		height:140px;
+		float:left;
+		margin:19px;
+		border:1px solid grey;
+	}
+
+	article p {margin-right:20px;
+			margin-top:20px
+	}
+	
+	article p span {font-weight:bold}
+
+		.buttons {
+			position:absolute;
+			bottom:20px;
+			right:20px;
+		}
+
+		.buttons button {
+			width:80px;
+			height:30px;
+			padding-bottom:3px;
+			color:white;
+			background-image:url('Images/button-image.png');
+			background-size:80px 60px;
+			background-repeat:no-repeat;
+		}

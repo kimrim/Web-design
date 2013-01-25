@@ -1,0 +1,75 @@
+body {
+	width:1100px;
+	font-family:Arial, Verdana, sans-serif;
+}
+
+header {border-bottom:1px solid black;}
+
+	header nav ul{
+		list-style-type:none;
+		font-size:1.4em;
+		color:#1DB7F1;
+		text-align:center
+	}
+
+	header nav ul li{
+		display:inline;
+		margin:10px;
+	}
+		
+section{
+	border:1px solid black;
+	float:left;
+	margin:10px 0px;
+	padding:10px;
+	display:table;
+	position:relative
+}
+
+section .row {display:table-row;}
+section .cell {
+	display:table-cell;
+	width:350px;
+	height:200px;
+	}
+	
+	.cell fieldset {border:1px solid black}
+	
+	.cell fieldset legend {text-align:center}
+	
+	.cell img {
+		width:180px;
+		height:120px;
+		float:left;
+	}
+	
+	.cell ul{
+		float:left;
+		list-style-type:none;
+		margin-top:30px;
+		margin-bottom:5px;
+	}
+	
+	.cell ul li {margin-top:20px}
+		
+	.cell p{ 
+		position:absolute;
+		padding:10px;
+		padding-left:30px;
+		margin-top:120px;
+	}
+	
+	fieldset legend{margin-left:100px}
+	
+aside {
+	float:left;
+	margin:10px 0px 10px 20px;
+	font-size:1.3em;
+	width:250px;
+}
+
+aside div:first-child {margin-top:100px}
+
+aside div{margin:10px}
+
+aside p span {margin-left:20px;}

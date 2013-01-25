@@ -1,0 +1,43 @@
+body {
+	background-color:3B3B3B;
+	margin-top:0;
+	width:70%;
+	font-family:Georgia, Times;
+	}
+
+header {
+	position:relative;
+	background-color:#313131;
+	color:white;
+	font-size:1.3em;
+	height:80px;
+	margin-left:-5px;
+	margin-right:-5px;
+	border-bottom:2px solid black;
+}
+
+	header img {
+		float:left;
+		margin:15px 70px 10px 10px;
+		
+		}
+			
+	header form input{
+		margin-left:20px;
+		margin-top:20px;
+		padding-left:5px;
+		
+	}
+	
+		header form input[type="image"]{vertical-align:bottom}
+		
+		header form input[type="text"]{margin-bottom:10px;}
+
+section{color:A1A1A1}
+		
+	section article h3 {
+		color:#FDD422;
+		font-size:1.4em;
+	}
+	
+	section article span {color:white}

@@ -1,0 +1,33 @@
+table {
+font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+border-collapse:collapse;
+}
+
+td, th {
+padding:6px;
+border-right:1px groove #A89D90;
+}
+
+th {
+background-color:#4FBB06;
+color:white;
+text-align:left;
+padding-top:5px;
+padding-bottom:5px;
+border-bottom:2px groove #A89D90;
+width:150px
+}
+
+th:last-child, td:last-child {
+width:100px;
+border-right:none
+}
+
+tr:nth-child(2n) {background-color:#EAF2D3;}
+
+img {
+width:24px;
+height:18px;
+position:relative;
+top:3px;
+}
