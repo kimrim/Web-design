@@ -7,8 +7,7 @@ header {border-bottom:1px solid black;}
 
 	header nav ul{
 		list-style-type:none;
-		font-size:1.4em;
-		color:#1DB7F1;
+		font-size:1.4em;		
 		text-align:center
 	}
 
@@ -16,6 +15,8 @@ header {border-bottom:1px solid black;}
 		display:inline;
 		margin:10px;
 	}
+	
+	header nav ul li a{color:#1DB7F1;}
 		
 section{
 	border:1px solid black;
