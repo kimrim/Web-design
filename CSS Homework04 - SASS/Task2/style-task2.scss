@@ -1,0 +1,44 @@
+body, ul, li, input, label {
+margin:0;
+padding:0;
+}
+
+body {
+
+
+.thumbnails {	
+	
+	ul {
+		list-style-type:none;
+		margin:5px;
+
+		li {			
+			float:left;				
+			margin:5px 5px;
+		}
+	}		
+	
+ }
+
+ .photo {
+	margin: 5px;
+	display:inline-block;
+	position:absolute;
+	opacity: 0;
+    } 
+
+.large-view {
+    position:absolute;		
+	margin-top:130px;
+
+	input[type="radio"] {
+		display:none;
+
+		&:checked + .photo {
+			display:block;
+			opacity:1;
+		}	
+	}				
+	
+ }
+}
