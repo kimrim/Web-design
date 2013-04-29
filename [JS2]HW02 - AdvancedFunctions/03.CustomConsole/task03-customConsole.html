@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Custom console</title>
+    <script type="text/javascript" src="task03-script.js"></script>
+</head>
+<body>
+    <p>Task 03: Create a module to work with the console object.Implement functionality for:<br />
+        Writing a line to the console<br />
+        Writing a line to the console using a format<br />
+        Writing to the console should call toString() to each element<br />
+        Writing errors and warnings to the console with and without format
+    </p>
+    <script type="text/javascript">
+        myConsole.writeLine("Hello");
+        myConsole.writeLine("Hello: {0}, {1}", "nice to meet you", "have a nice stay");
+        myConsole.writeError("Error: {0}", "Something happened");
+        myConsole.writeWarning("Warning: {0}", "a warning");
+    </script>
+</body>
+</html>

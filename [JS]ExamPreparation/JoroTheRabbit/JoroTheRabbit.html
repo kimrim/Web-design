@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        function Solve(args) {
+            var input = args[0].split(", ");
+            var numbers = [];           
+            var bestStart;
+            var bestStep;
+            var maxCount = 1;
+            
+            for (var i = 0; i < input.length; i++) {
+                numbers[i] = parseInt(input[i].trim());
+            }
+            
+            for (var i = 0; i < numbers.length; i++) {
+                                
+                for (var step = 1; step < numbers.length; step++) {
+                    var cycleCount = 1;                    
+                    var j = i + step;
+                    var currentNum = numbers[i];
+                    while (true) {
+                        if (j >= numbers.length) j -= numbers.length;                       
+                        if (numbers[j] <= currentNum) {
+                            break;
+                        }
+                        //console.log("visited: " + visited[j] + " j=" + j);
+                        currentNum = numbers[j];                        
+                        cycleCount++;
+                        j += step;                        
+                       // console.log("current: " + currentNum + " next: " + numbers[j]);                        
+                    }
+                   //console.log("number: " + numbers[i] + ", step: " + step + ", counter:" + cycleCount);
+
+                    if (cycleCount > maxCount) {
+                        maxCount = cycleCount;
+                        bestStart = numbers[i];
+                        bestStep = step;
+                    }
+                }
+            } 
+            
+            return maxCount;
+           
+        }
+
+        Solve(["18, -371, -39, 39, -374, -46, 28, -377, -53, -816, -380, -60, 38, -383, -35, 27, -386, -42, 16, -357, -49, -813, -360, -56, 26, -363, -63, 15, -366, -38, 36, -369, -45, -818, -372, -52, 14, -375, -59, 35, -378, -34, 24, -381, -41, -815, -384, -48, 34, -387, -55, 23, -358, -62, 44, -361, -37, -812, -364, -44, 22, -367, -51, 43, -370, -58, 32, -373, -33, -817, -376, -40, 42, -379, -47, 31, -382, -54, 20, -385, -61, -814, -356, -36, 30, -359, -43, 19, -362, -50, 40, -365, -57, -819, -368, -32"])
+    </script>
+</head>
+<body>
+
+</body>
+</html>

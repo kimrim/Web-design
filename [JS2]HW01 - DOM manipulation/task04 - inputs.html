@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<p>Task4: Create a text area and two inputs with type="color". Make the font color of the text area as the value of the first color input.
+			Make the background color of the text area as the value of the second input</p>
+			
+		<textarea name="" id="text" cols="30" rows="10"></textarea>
+		<input type="color" id="first"/>
+		<input type="color" id="second"/><br/>
+		<button id="submit">Submit</button>
+		
+		
+		<script type="text/javascript">
+			(function(){
+				var colorOne = document.getElementById("first");
+				var colorTwo = document.getElementById("second");
+				var textArea = document.getElementById("text");
+				var button = document.getElementById("submit");
+				
+				button.addEventListener("click", function(){
+					textArea.style.color = colorOne.value;
+					textArea.style.background = colorTwo.value;
+				});
+			})();
+		</script>
+	</body>
+</html>

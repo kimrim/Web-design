@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02.MovingDivs", "02.MovingDivs\02.MovingDivs.csproj", "{62EE72C1-23DA-46E8-B5E2-13C37CBEDD8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.CustomConsole", "03.CustomConsole\03.CustomConsole.csproj", "{3567684E-A58F-4626-8663-9FA79C724767}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62EE72C1-23DA-46E8-B5E2-13C37CBEDD8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62EE72C1-23DA-46E8-B5E2-13C37CBEDD8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62EE72C1-23DA-46E8-B5E2-13C37CBEDD8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62EE72C1-23DA-46E8-B5E2-13C37CBEDD8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3567684E-A58F-4626-8663-9FA79C724767}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3567684E-A58F-4626-8663-9FA79C724767}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3567684E-A58F-4626-8663-9FA79C724767}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3567684E-A58F-4626-8663-9FA79C724767}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

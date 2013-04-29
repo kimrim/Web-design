@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		#cloud {
+			width:200px;
+			border:1px solid grey;
+			padding:3px;
+			background:#F6F6F6;
+		}
+	</style>
+</head>
+<body>
+	<p>Task 5: Create a tag cloud. Visualize a string of tags (strings) in a given container. 
+	By given minFontSize and maxFontSize, generate the tags with different font-size, depending on the number of occurrences</p>
+
+	<div id="cloud"></div>
+	<script type="text/javascript">
+		var tags = ["cms", "javascript", "js", "ASP.NET MVC", ".net", ".net", "css", "wordpress", 
+		"xaml", "http", "http", "web", "asp.net", "asp.net MVC", "ASP.NET MVC", "wp", "javascript", 
+		"js", "cms", "http", "javascript", "http", "http", "CMS"];
+		var div = document.getElementById("cloud");
+		generateTagCloud(tags, 17, 42);
+		
+		function generateTagCloud(tagArray, minFontSize, maxFontSize){
+			var frequencyArr = [];
+			var i = 0;
+			var j = 0;
+			var counter = 0;
+			
+			for(i = 0; i < tags.length; i++){
+				counter = 0;
+				
+				for (j = i+1; j < tags.length; j++){
+					if(tags[i].toLowerCase() == tags[j].toLowerCase()){
+						counter++;
+						tags.splice(j,1);
+						j--;
+					}
+				}
+				
+				frequencyArr.push(counter);
+			}
+			
+			for (i = 0; i < tags.length; i++){
+				console.log(frequencyArr[i]);
+				var output = document.createElement("span");
+				
+				if(frequencyArr[i] == 0){
+					output.style.fontSize = minFontSize + "px";
+				}
+				else{
+					var font = minFontSize + frequencyArr[i]*2;
+					if(font > maxFontSize) font = maxFontSize;					
+					output.style.fontSize = font + "px";
+				}
+				
+				output.innerHTML = tags[i] + " ";
+				div.appendChild(output);
+			}			
+		}
+
+	</script>
+</body>
+</html>

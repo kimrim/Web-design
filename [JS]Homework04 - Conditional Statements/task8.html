@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+	<head></head>
+	<body>
+		<p>Task 8: <span id="demo8">Task result</span></p>		
+		<script>
+			function TypeAnswer (Id, result){
+			document.getElementById(Id).innerHTML = result;
+}
+			var userInput = prompt("enter a number in the range 0 - 999","");
+			var numberGiven = parseInt(userInput);
+			var specialNumber = false;
+            var wholeNumber = false;
+			var result;
+			
+			if (numberGiven < 0 || numberGiven > 999) result = "The number you have entered is not in the desired range";            
+            else{
+                if (numberGiven % 100 == 0) wholeNumber = true;                
+                var checkHundreds = parseInt(numberGiven / 100);
+                switch (checkHundreds)
+                {
+                    case 0: result = ""; break;
+                    case 1: result = "One hundred" + (wholeNumber ? "\n" : " " + "and" + " "); break;
+                    case 2: result = "Two hundred" + (wholeNumber ? "\n" : " " + "and" + " "); break;
+                    case 3: result = "Three hundred" + (wholeNumber ? "\n" : " " + "and" + " "); break;
+                    case 4: result = "Four hundred" + (wholeNumber ? "\n" : " " + "and" + " "); break;
+                    case 5: result = "Five hundred" + (wholeNumber ? "\n" : " " + "and" + " "); break;
+                    case 6: result = "Six hundred" + (wholeNumber ? "\n" : " " + "and" + " "); break;
+                    case 7: result = "Seven hundred" + (wholeNumber ? "\n" : " " + "and" + " "); break;
+                    case 8: result = "Eight hundred" + (wholeNumber ? "\n" : " " + "and" + " "); break;
+                    case 9: result = "Nine hundred" + (wholeNumber ? "\n" : " " + "and" + " "); break;
+                    default:
+                        break;
+                }
+
+                var checkTens = numberGiven % 100;
+                checkTens = parseInt(checkTens / 10);
+                switch (checkTens)
+                {
+                    case 0: break;
+                    case 1: specialNumber = true;
+                        switch (numberGiven % 100)
+                        {
+                            case 10: result += "Ten";    break;
+                            case 11: result += "Eleven";    break;
+                            case 12: result += "Twelve";    break;
+                            case 13: result += "Thirteen";    break;
+                            case 14: result += "Fourteen";    break;
+                            case 15: result += "Fifteen";    break;
+                            case 16: result += "Sixteen";    break;
+                            case 17: result += "Seventeen";    break;
+                            case 18: result += "Eighteen";    break;
+                            case 19: result += "Nineteen";    break;
+                        }
+                        break;
+                    case 2: result += "Twenty" + " "; break;
+                    case 3: result += "Thirty" + " "; break;
+                    case 4: result += "Fourty" + " "; break;
+                    case 5: result += "Fifty" + " "; break;
+                    case 6: result += "Sixty" + " "; break;
+                    case 7: result += "Seventy" + " "; break;
+                    case 8: result += "Eighty" + " "; break;
+                    case 9: result += "Ninety" + " "; break;
+                    default:
+                        break;
+                }
+                if (specialNumber == false)
+                {
+                    var checkOnes = (numberGiven % 100) % 10;
+                    switch (checkOnes)
+                    {
+                        case 0:                            break;
+                        case 1: result += "One" + "\n";  break;
+                        case 2: result += "Two" + "\n";  break;
+                        case 3: result += "Three" + "\n";  break;
+                        case 4: result += "Four" + "\n";  break;
+                        case 5: result += "Five" + "\n";  break;
+                        case 6: result += "Six" + "\n";  break;
+                        case 7: result += "Seven" + "\n";  break;
+                        case 8: result += "Eight" + "\n";  break;
+                        case 9: result += "Nine" + "\n";  break;
+                        default:
+                            break;
+                    }
+                }
+            }
+			
+			TypeAnswer ("demo8", result);
+		</script>
+	</body>
+</html>

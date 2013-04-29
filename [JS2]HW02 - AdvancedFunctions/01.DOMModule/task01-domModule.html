@@ -1,0 +1,25 @@
+<html>
+<head>
+	<script type="text/javascript" src="task01-script.js"></script>
+</head>
+<body>
+<div id="wrapper"></div>
+<script type="text/javascript">
+	var div = document.createElement("div");
+	var linkOne = document.createElement("a");
+	var linkTwo = document.createElement("a");
+	linkTwo.className = "button";
+	linkTwo.innerHTML = "Click me";
+	domModule.appendChild(linkOne, "#wrapper");
+	domModule.appendChild(linkTwo, "#wrapper");
+	domModule.appendChild(div, "#wrapper");	
+	domModule.removeChild("#wrapper", "a:first-child");
+	domModule.addHandler("a.button", "click", function(){alert("Clicked");});
+	domModule.appendToBuffer("#wrapper", "button", "btn1");
+	domModule.appendToBuffer("#wrapper", "button", "btn2");
+	domModule.appendToBuffer("#wrapper", "button", "btn3");
+	domModule.appendToBuffer("#wrapper", "button");
+
+</script>
+</body>
+</html>

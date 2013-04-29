@@ -1,0 +1,90 @@
+<html>
+<head>
+	<style type="text/css">
+		#main {
+			width:800px;
+			height:800px;
+			border: 1px solid black;
+		}
+		
+		.inner {
+			position: absolute;			
+		}
+	</style>
+	
+</head>
+<body>
+	<p>Write a script that creates a number of div elements.Random width and height between 20px and 100px.
+		Random background color,
+		Random font color,
+		Random position on the screen (position:absolute),
+		A strong element with text "div" inside the div,
+		Random border-radius,
+		Random border color,
+		Random border-width between 1px and 20px,
+	</p>
+	<button id="start">Start</button>
+	<div id="main">
+	</div>
+	<script type="text/javascript">
+		
+			var elementNum;
+			var buttonStart = document.getElementById("start");
+			var mainDiv = document.getElementById("main");
+			
+			buttonStart.addEventListener("click", function(){
+				elementNum = parseInt(prompt("Enter the number of elements",""));
+
+				for (var i = 0; i < elementNum; i++){
+					var div = document.createElement("div");
+					div.className = "inner";
+					div.style.width = setDimension();
+					div.style.height = setDimension();
+					div.style.backgroundColor = setColor();
+					div.style.color = setColor();
+					div.style.top = setPos(50, 750);
+					div.style.left = setPos(0, 700);					
+					div.innerHTML += "<strong>div</strong>";
+					div.style.border = setBorder();
+					div.style.borderRadius = setBorderRad();
+					
+					
+					mainDiv.appendChild(div);
+				}				
+			});	
+			
+			
+			function setDimension(){
+				return generateRandom(20, 100) + "px";
+			};
+			
+			function setColor(){
+				var color = "rgb(";
+				color += generateRandom(1, 255) + ",";
+				color += generateRandom(1, 255) + ",";
+				color += generateRandom(1, 255) + ")";
+				
+				return color;
+			};
+			
+			//TODO: rework magic numbers
+			function setPos(start, end){
+				return generateRandom(start, end) + "px";
+			};
+			
+			function setBorder(){
+				var border = generateRandom(1, 20) + "px solid " + setColor();
+				return border;
+			};
+			
+			function setBorderRad(){
+				return generateRandom(1, 20) + "px";
+			};
+						
+			function generateRandom(start, end){
+				return Math.floor(Math.random() * end + start) ;
+			};
+		
+	</script>
+</body>
+</html> 

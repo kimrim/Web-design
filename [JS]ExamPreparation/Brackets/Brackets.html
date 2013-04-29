@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script type="text/javascript">
+        String.prototype.fulltrim = function () { return this.replace(/(?:(?:^|\n)\s+|\s+(?:$|\n))/g, '').replace(/\s+/g, ' '); };
+        function Solve(args) {
+            var i, j, indexOfOpenBracket, indexOfCloseBracket, scopeLevel = 0;
+            var lines = args[0];
+            var separator = args[1];
+            var inputLines = new Array(lines);
+            var resultString = "";
+            var resultArr = [];
+            for (i = 0; i < lines; i++) {
+                inputLines[i] = args[i + 2].fulltrim();
+            }
+            for (i = 0; i < lines; i++) {
+                resultArr.push(printSeparator(separator, scopeLevel));
+                for (j = 0; j < inputLines[i].length; j++) {
+                    if (inputLines[i][j] === '{') {
+                        resultArr.push(printSeparator(separator, scopeLevel) + resultString.trim());
+                        resultArr.push(printSeparator(separator, scopeLevel) + '{');
+                        scopeLevel++;
+                        resultString = "";
+                    }
+                    else if (inputLines[i][j] === '}') {
+                        resultArr.push(printSeparator(separator, scopeLevel) + resultString.trim());
+                        scopeLevel--;
+                        resultArr.push(printSeparator(separator, scopeLevel) + '}');
+                        resultString = "";
+                    }
+                    else {
+                        resultString += inputLines[i][j];
+                    }
+                }
+                resultArr.push(printSeparator(separator, scopeLevel) + resultString.trim());
+                resultString = "";
+            }
+            resultString = "";
+            for (i = 0; i < resultArr.length; i++) {
+                if ((resultArr[i].lastIndexOf(separator) !== resultArr[i].length - separator.length)
+                        && (resultArr[i] !== "")) {
+                    resultString += resultArr[i] + '\r\n';
+                }
+                else if (resultArr[i].length === 1 && resultArr[i] !== separator) {
+                    resultString += resultArr[i] + '\r\n';
+                }
+            }
+            return resultString.trimRight();
+        }
+
+        function printSeparator(sep, lvl) {
+            var i, result = [];
+            for (i = 0; i < lvl; i++) {
+                result.push(sep);
+            }
+            return String(result.join(""));
+        }
+
+        function isNextSymBracket(inputLines, i, j) {
+            if (inputLines[i][j + 1] !== '{' && inputLines[i][j + 1] !== '}') {
+                return '\r\n';
+            }
+            else return '';
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

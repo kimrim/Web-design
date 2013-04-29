@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Vehicles</title>
+    <script type="text/javascript" src="task01-script.js"></script>
+</head>
+<body>    
+	<script type="text/javascript">
+		var wheels = [new Wheel(10), new Wheel(10),new Wheel(10),new Wheel(10)];
+		var carOne = new LandVehicle(70, wheels);
+		console.log(carOne.uber.name);
+		carOne.accelerate();
+		console.log(carOne instanceof Vehicle);        
+	</script>
+</body>
+</html>
