@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Trash</title>
+    <style>
+        button#start {
+            position:absolute;
+            top:5px;
+            left:5px;
+        }     
+
+        div#trashcan{
+            float:left;            
+            width:170px;
+            height:300px;
+            margin:30px;           
+        }
+        
+            #trashcan:after{
+                    zoom:1;
+                    content:"";
+                    clear:both;
+                }                           
+
+        #field {
+            float:left;                  
+            width:700px;
+            height:500px;
+        }
+        
+            #field:after {
+                    zoom:1;
+                    content:"";
+                    clear:both;
+                }
+
+        #score {
+            float:right;
+        }                    
+
+        .rubbish {
+            position:absolute;
+            margin:10px;
+            width:64px;
+            height:64px;            
+            background-image:url(images/rubbish.png);
+        }
+
+        img#closed {
+            margin-top:35px;
+        }
+
+        div#board {
+            padding:10px;
+            background:#E3E9ED;
+            border:1px solid transparent;
+            border-radius:15px;
+        }
+
+        div#pairs-container ul {
+            width:250px;
+        }
+
+        .hidden {
+            display:none;
+        }
+
+        .visible {           
+            display:block;
+        }
+    </style>      
+</head>
+<body>
+    <button id="start">Generate field</button>    
+    <div id="trashcan" ondrop="drop(event)" ondragover="allowDrop(event)" ondragenter="dragEnter(event)">
+        <img src="images\trashcan-closed-edit.jpg" id="closed" width="120px" height="200px"/>
+        <img src="images\trashcan-open-edit.jpg" id="open" class="hidden" width="135px" height="230px"/>
+    </div>
+    <div id="field" ondrop="drop(event)" ondragover="allowDrop(event)"></div>    
+    <div id="score">
+        <p>Your time: <span id="timer"></span> seconds</p>
+        <div id="board" class="hidden">
+        	<label>Enter your name for the scoreboard:</label>
+            <input type="text" name="tb-key" id="tb-key" value="" /> <br />       
+        	<button onclick="onSaveButtonClick()">Save</button>               
+        	<button onclick="onRemoveButtonClick()">Remove</button>
+        	<button onclick="onClearStorageButtonClick()">Clear storage</button>
+        	<div id="pairs-container"></div>
+        </div>
+    </div>
+    <script src="scripts\task01-script.js"></script>      
+</body>
+</html>

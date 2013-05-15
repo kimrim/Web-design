@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="scripts/canvasplus1-1.js"></script>
+    <style>
+        canvas {
+            border:1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="head" width="200px" height="300px"></canvas>
+    <canvas id="bicycle" width="360px" height="250px"></canvas>
+    <canvas id="house" width="300px" height="400px"></canvas>
+    <script>
+        (function () {
+            //draw the head=================================
+            var context = canvasPlus("head");
+            context.lineWidth = 2;
+            context.fillStyle = "rgb(144, 202, 215)";
+            context.strokeStyle = "rgb(30, 81, 92)";
+
+            //ouline
+            context.drawEllipse("fill", 100, 200, 70, 60);
+            context.drawEllipse("stroke", 100, 200, 70, 60);
+
+            //eyes-outer            
+            context.drawEllipse("stroke", 54, 180, 11, 7);            
+            context.drawEllipse("stroke", 104, 180, 11, 7);
+
+            //eyes-iris
+            context.fillStyle = "rgb(30, 81, 92)";
+            context.drawEllipse("fill", 50, 180, 2, 5);
+            context.drawEllipse("stroke", 50, 180, 2, 5);
+            context.drawEllipse("fill", 100, 180, 2, 5);
+            context.drawEllipse("stroke", 100, 180, 2, 5);
+
+            //nose
+            context.drawLine(80, 180, 66, 208);
+            context.drawLine(66, 208, 80, 208);
+
+            //mouth
+            context.drawEllipse("stroke", 86, 232, 26, 8, 0.2);
+
+            //hat-base
+            context.strokeStyle = "rgb(34, 32, 31)";
+            context.fillStyle = "rgb(57, 102, 147)";
+            context.drawEllipse("fill", 100, 145, 70, 15);
+            context.drawEllipse("stroke", 100, 145, 70, 15);
+
+            //cylinder-base
+            context.drawEllipse("fill", 106, 135, 42, 14);
+            context.drawEllipse("stroke", 106, 135, 42, 14);
+
+            //cylinder
+            context.drawRect("fill", 64, 55, 84, 80);
+            context.drawRect("stroke", 64, 55, 84, 80);
+
+            //cylinder-top
+            context.drawEllipse("fill", 106, 55, 42, 14);
+            context.drawEllipse("stroke", 106, 55, 42, 14);
+
+            //clear-line
+            context.strokeStyle = "rgb(57, 102, 147)";
+            context.drawLine(65, 135, 147, 135);
+
+            //draw bicycle====================================
+            context = canvasPlus("bicycle");
+            context.lineWidth = 2;
+            context.fillStyle = "rgb(144, 202, 215)";
+            context.strokeStyle = "rgb(51, 125, 143)";
+
+            //left wheel         
+            context.drawCircle("fill", 70, 180, 60);
+            context.drawCircle("stroke", 70, 180, 60);
+
+            //right wheel         
+            context.drawCircle("fill", 290, 180, 60);
+            context.drawCircle("stroke", 290, 180, 60);
+
+            //back-frame
+            context.drawLine(70, 180, 170, 180);
+            context.drawLine(70, 180, 140, 110);
+            context.drawLine(140, 110, 170, 180);
+
+            //chain and pedals
+            context.drawCircle("stroke", 170, 180, 15);
+            context.drawLine(161, 169, 152, 158);
+            context.drawLine(179, 191, 188, 202);
+
+            //seat
+            context.drawLine(140, 110, 132, 90);
+            context.drawLine(107, 90, 155, 90);
+
+            //mid-frame
+            context.drawLine(140, 110, 270, 110);
+            context.drawLine(170, 180, 270, 110);
+
+            //front-frame
+            context.drawLine(290, 180, 260, 75);
+            context.drawLine(260, 75, 220, 90);
+            context.drawLine(260, 75, 285, 50);
+
+            //draw house====================================
+            context = canvasPlus("house");
+            context.lineWidth = 2;
+            context.fillStyle = "rgb(151, 91, 91)";
+            context.strokeStyle = "rgb(0, 0, 0)";
+
+            //roof
+            context.drawIsosceles("fill", 150, 10, 290, 160);
+            context.drawIsosceles("stroke", 150, 10, 290, 160);
+
+            //chimney
+            context.drawRect("fill", 205, 40, 35, 85);
+            context.drawRect("stroke", 205, 40, 35, 85);            
+
+            //chimney-top
+            context.drawEllipse("fill", 222.5, 40, 18, 3);
+            context.drawEllipse("stroke", 222.5, 40, 18, 3);
+
+            //base
+            context.drawRect("fill", 5, 170, 290, 210);
+            context.drawRect("stroke", 5, 170, 290, 210);
+
+            //base windows
+            context.fillStyle = "rgb(0, 0, 0)";
+
+            //windows top-left
+            context.drawRect("fill", 25, 190, 50, 30);
+            context.drawRect("fill", 76, 190, 50, 30);
+            context.drawRect("fill", 25, 221, 50, 30);
+            context.drawRect("fill", 76, 221, 50, 30);
+
+            //windows top-right
+            context.drawRect("fill", 174, 190, 50, 30);
+            context.drawRect("fill", 225, 190, 50, 30);
+            context.drawRect("fill", 174, 221, 50, 30);
+            context.drawRect("fill", 225, 221, 50, 30);
+
+            //windows bottom-right
+            context.drawRect("fill", 174, 275, 50, 30);
+            context.drawRect("fill", 225, 275, 50, 30);
+            context.drawRect("fill", 174, 306, 50, 30);
+            context.drawRect("fill", 225, 306, 50, 30);
+
+            //doors
+            context.fillStyle = "rgb(151, 91, 91)";
+            context.drawEllipse("stroke", 75, 295, 40, 20);
+
+            //left-door
+            context.drawRect("fill", 35, 295, 40, 85);
+            context.drawRect("stroke", 35, 295, 40, 85);
+
+            //right-door
+            context.drawRect("fill", 75, 295, 40, 85);
+            context.drawRect("stroke", 75, 295, 40, 85);
+
+            //door handles
+            context.drawCircle("stroke", 85, 350, 4);
+            context.drawCircle("stroke", 65, 350, 4);
+
+            //clear lines
+            context.strokeStyle = "rgb(151, 91, 91)";
+            context.drawLine(206, 125, 239, 125);
+            context.drawLine(36, 295, 114, 295);
+
+            //extend door line
+            context.strokeStyle = "rgb(0, 0, 0)";
+            context.drawLine(75, 296, 75, 275);
+
+        })();
+    </script>
+</body>
+</html>

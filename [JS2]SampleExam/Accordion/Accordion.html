@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style>
+        ul {
+            max-width:200px;
+        }
+        ul li {
+            display:block;
+            width:auto;
+            border:1px solid #d8d2d2;
+            background-color:#d8dff4;            
+            text-align:center;
+        }
+            ul li a {
+                text-decoration:none;
+                color:black;
+            }
+
+            ul li:hover > a{
+                text-decoration: underline;
+            }
+    </style>
+    <script src="accordion-script.js"></script>
+    <script src="local-storage-extensions.js"></script>
+</head>
+<body>
+    <script>
+        var acc = controls.generateAccordeon("Main-acc");
+        var webitem = acc.addNode("Web");
+        {
+            var subitem1 = webitem.addNode("www");
+            var subitem2 = webitem.addNode("LAN");
+            {
+                var subitem21 = subitem2.addNode("I/O");
+            }
+        }
+        var hardware = acc.addNode("hardware");
+        {
+            var subitem3 = hardware.addNode("HDD");
+            {
+                var subitem31 = subitem3.addNode("Driver");
+            }
+            
+            var subitem4 = hardware.addNode("Video");
+            {
+                var subitem41 = subitem4.addNode("Embedded");
+                var subitem42 = subitem4.addNode("External");
+            }
+        }
+        acc.render();
+        var serializedList = acc.serialize();
+        localStorage.setObject("accordeon", serializedList);
+        
+        var serializedData = localStorage.getObject("accordeon");
+        var clonedAccordeon = controls.rebuildAccordeon("cloned-acc", serializedData);
+        clonedAccordeon.render();
+    </script>
+</body>
+</html>

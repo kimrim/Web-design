@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>    
+</head>
+<body>    
+    <script src="scripts\json-polyFill.js"></script>
+    <script src="scripts\task03-script.js"></script>    
+    <script>        
+        document.localStorage.setItem("demo", 1);
+        document.localStorage.setItem("another demo", 11);
+        
+        console.log("storage size = " + document.localStorage.length);
+
+        console.log(document.localStorage.getItem("demo"));        
+        console.log(document.localStorage.key(0));
+       
+        document.localStorage.removeItem("demo");
+        
+        console.log("storage size after removal of first entry = " + document.localStorage.length);
+    </script>
+</body>
+</html>
