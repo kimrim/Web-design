@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>School Repository</title>
+    <script src="Scripts/prototypalObject-create.js"></script>
+    <script src="Scripts/sript-prototypal.js"></script>
+</head>
+<body>
+    <script>
+        var studentPesho = Object.create(Student);
+        studentPesho.init("Pesho", "Peshev", 12, 6);
+        console.log(studentPesho.introduce());
+        
+        var studentGosho = Object.create(Student);
+        studentGosho.init("Gosho", "Goshev", 10, 4);
+        console.log(studentGosho.introduce());
+        console.log(studentPesho.introduce());
+
+        var mathTeacher = Object.create(Teacher);
+        mathTeacher.init("Bai", "Strahil", 34, "Math");
+
+        var mathClass = Object.create(SchoolClass);
+        mathClass.init("Math101", 20, [studentPesho, studentGosho], mathTeacher);
+        console.log(mathClass.introduce());
+
+        var localSchool = Object.create(School);
+        localSchool.init("Mofo high", "Sofia", [mathClass]);
+        console.log(localSchool.introduce());
+    </script>
+</body>
+</html>

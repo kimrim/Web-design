@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Insert element</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <style>
+        .inserted {
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <div id="initial-one">First original</div>
+        <div id="initial-two">Second original</div>
+    </div>
+    <script>        
+        $("#initial-one").before("<div class='inserted'>First inserted</div>");
+        $("#initial-one").after("<div class='inserted'>Last inserted</div>");
+    </script>
+</body>
+</html>

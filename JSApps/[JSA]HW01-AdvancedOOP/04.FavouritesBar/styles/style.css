@@ -1,0 +1,22 @@
+﻿body {
+    margin:0;
+    padding:0;
+}
+
+#wrapper {
+    width:300px;
+    height:auto;
+    margin:5px;
+    background: #e0f1f3;
+}
+
+span {
+    font-size:1.3em;
+    font-weight:bold;
+    display:block;
+    margin-left:-40px;
+}
+
+ul {
+    list-style-type:none;
+}

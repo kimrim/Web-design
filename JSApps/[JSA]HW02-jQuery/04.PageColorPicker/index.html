@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Color picker</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>    
+    <form action="#">
+        <label>Select a color for the page:</label>
+        <input id="input" type="color" />
+    </form>
+    <script>
+        //Note that input type=color works only in Chrome!
+        var el = $("#input");
+        el.change(function () {
+            var color = el.val();
+            $("body").css("background-color", color);
+        });
+    </script>
+</body>
+</html>

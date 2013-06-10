@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>School Repository</title>
+    <script src="Scripts/classicalObject-create.js"></script>
+    <script src="Scripts/script-classical.js"></script>
+</head>
+<body>
+    <script>
+        var studentPesho = new Student("Pesho", "Peshev", 12, 6);
+        var studentGosho = new Student("Gosho", "Goshev", 10, 4);
+        console.log(studentPesho.introduce());
+        console.log(studentGosho.introduce());
+
+        var biologyTeacher = new Teacher("Dr.", "House", 40, "Biology");
+        var mathTeacher = new Teacher("Ivan", "Strahilov", 34, "Math");
+        console.log(mathTeacher.introduce());
+        console.log("student is person?: " + (studentPesho instanceof Person));
+        console.log("teacher is person?: " + (mathTeacher instanceof Person));        
+
+        var mathClass = new SchoolClass("Math101", 20, [studentPesho, studentGosho], mathTeacher);
+        var biologyClass = new SchoolClass("Biology101", 16, [studentPesho, studentGosho], biologyTeacher);
+        console.log(mathClass.introduce());
+        console.log(biologyClass.introduce());
+
+        var localSchool = new School("Mofo high", "Sofia", [mathClass, biologyClass]);
+        console.log(localSchool.introduce());
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Slider</title>
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="slider"></div>
+    <script src="scripts/prototypalObject-create.js"></script>
+    <script src="scripts/script.js"></script>
+    <script>
+        var img1 = Object.create(Image);
+        img1.init("one", "images/nature1-thumb.jpg", "images/nature1-large.jpg");
+        var img2 = Object.create(Image);
+        img2.init("two", "images/nature2-thumb.jpg", "images/nature2-large.jpg");
+        var img3 = Object.create(Image);
+        img3.init("three", "images/nature3-thumb.jpg", "images/nature3-large.jpg");
+        var img4 = Object.create(Image);
+        img4.init("four", "images/nature4-thumb.jpg", "images/nature4-large.jpg");
+
+        var slider = Object.create(Slider);
+        slider.init("#slider", [img1, img2, img3, img4]);
+        slider.render();
+    </script>
+</body>
+</html>

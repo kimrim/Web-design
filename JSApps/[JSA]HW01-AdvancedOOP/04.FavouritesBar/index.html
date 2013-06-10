@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Favourites</title>
+    <script src="scripts/classicalObject-create.js"></script>
+    <script src="scripts/script.js"></script>
+    <link href="styles/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div id="wrapper"></div>
+    <script>
+        var url1 = new URL("jQuery", "http://en.wikipedia.org/wiki/JQuery");
+        var url2 = new URL("MooTools", "http://en.wikipedia.org/wiki/Mootools");
+        var url3 = new URL("AJAX", "http://en.wikipedia.org/wiki/ASP.NET_AJAX");
+        var url4 = new URL("9Gag", "http://9gag.com/");
+        var url5 = new URL("Memebase", "http://memebase.cheezburger.com/");
+        var url6 = new URL("Something", "http://www.google.bg/");
+
+        var folder1 = new Folder("Work", [url3]);
+        var folder2 = new Folder("Fun", [url4, url5, url6]);
+
+        var favBar = new FavouritesBar([url1, url2], [folder1, folder2]);
+        favBar.render();
+    </script>
+</body>
+</html>

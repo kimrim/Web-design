@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01.SchoolRepository", "01.SchoolRepository\01.SchoolRepository.csproj", "{DE384B80-BEEA-4DDE-BB7E-3DC7210A0CA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03.ImageSlider", "03.ImageSlider\03.ImageSlider.csproj", "{A88978C2-8D47-4CA0-A50A-DE39CBF41892}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04.FavouritesBar", "04.FavouritesBar\04.FavouritesBar.csproj", "{B8C6352A-B7DA-4440-B878-BA53FA36F5B6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE384B80-BEEA-4DDE-BB7E-3DC7210A0CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE384B80-BEEA-4DDE-BB7E-3DC7210A0CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE384B80-BEEA-4DDE-BB7E-3DC7210A0CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE384B80-BEEA-4DDE-BB7E-3DC7210A0CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A88978C2-8D47-4CA0-A50A-DE39CBF41892}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A88978C2-8D47-4CA0-A50A-DE39CBF41892}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A88978C2-8D47-4CA0-A50A-DE39CBF41892}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A88978C2-8D47-4CA0-A50A-DE39CBF41892}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8C6352A-B7DA-4440-B878-BA53FA36F5B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8C6352A-B7DA-4440-B878-BA53FA36F5B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8C6352A-B7DA-4440-B878-BA53FA36F5B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8C6352A-B7DA-4440-B878-BA53FA36F5B6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
