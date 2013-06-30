@@ -1,0 +1,158 @@
+var chessController = (function () {
+    var BOARD_CELLS = 64;
+
+    function ChessBoard() {
+        var arr = createArray(8, 8);
+        var cellContent = arr;
+        var lastPlayer;
+
+        this.init = function () {
+            var board = $("#board");
+            var counter = 0;
+
+            for (var i = 0; i < 8; i++) {
+                var row = $("<div></div>").addClass("row");                
+
+                for (var j = 0; j < 8; j++) {
+                    counter++;
+                    var cell = $("<div></div>").addClass("cell").attr("id", "r" + (i + 1) + "c" + (j + 1));                    
+                    counter % 2 == 1 ? cell.addClass("white-cell") : cell.addClass("black-cell");   
+                    
+                    row.append(cell);
+                    //The end of each row will increment cells +1 to keep the black/white sequence
+                    if (j == 7) {
+                        counter++;
+                    }
+                }
+                board.append(row);
+            }
+        }
+
+        this.update = function(pieces){
+            cellContent = pieces;
+        }
+
+        //TODO: finish piece creation
+        this.initPieces = function (pieces) {
+            cellContent = pieces;// ------> Това е кофти и ако има фикс трябва да го опрваим без да счупим всичко надолу :)
+
+            for (var i = 0; i < 8; i++) {
+                for (var j = 0; j < 8; j++) {
+                    if (typeof(cellContent[i][j]) != "undefined"){
+                        $("#r" + (i + 1) + "c" + (j + 1)).html(cellContent[i][j].visualize());
+                    }
+                }
+            }			          
+        }
+		
+		var initialCoordinates = {};
+		var dropCoordinates = {};
+		
+        //making pieces draggable
+        this.initDragNDrop = function () {
+            
+            $("div.cell span").draggable({
+                opacity: .4,
+                containment: "#board",
+                cursor: 'move',
+                start: function(event, ui) {
+                    $(this).data('originalOffset', ui.offset);
+                    initialCoordinates = transmitParentData($(this).parent().attr("id"));                    
+                }
+            });
+
+           $("div.cell").droppable({
+                drop: function (event, ui) {
+
+                    //retrieves the old position of the piece, and the new position that we choose
+                    var that = this;
+                    var cellId = $(that).attr('id');
+                    var positionX = parseInt(cellId[1]) - 1;
+                    var positionY = parseInt(cellId[3]) - 1;
+                    var parentId = ui.draggable.parent().attr("id");
+                    var oldX = parseInt(parentId[1]) - 1;
+                    var oldY = parseInt(parentId[3]) - 1;
+                    var positionToAttach = ui.draggable.parent();
+
+                    //checks for a possible check by the enemy
+                    var isCheck = cellContent[oldX][oldY].allowsCheck({
+                        board: cellContent, 
+                        positionX: cellContent[oldX][oldY].posX, 
+                        positionY: cellContent[oldX][oldY].posY,
+                        newX: positionX,
+                        newY: positionY,
+                    });
+                    
+                    if(!isCheck){
+                        //calls the move validation and makes the move or leaves the piece on the old position
+                        
+                        var isValidMove = cellContent[oldX][oldY].validate(cellContent, positionX, positionY);
+                                
+                        if(isValidMove)
+                        {
+                            if (lastPlayer && lastPlayer == cellContent[oldX][oldY].color) {                                
+                                alert("It is not your turn!");
+
+                            }
+                            else {
+                                lastPlayer = cellContent[oldX][oldY].color;
+
+                                if(cellContent[oldX][oldY].constructor.name=="King"){
+                                    cellContent[oldX][oldY].modifyKings({
+                                        posX:positionX,
+                                        posY:positionY
+                                    })
+                                }    
+
+                                positionToAttach = this;
+                    				
+                                pieceController.makeMove(positionX, positionY, cellContent[oldX][oldY], cellContent);
+                            }
+                                
+                        } 
+                    }
+                    
+                    ui.draggable.detach().appendTo($(positionToAttach));
+                    var boxArt = $(positionToAttach).children('span');
+                    boxArt.css({ top: 0, left: 0 });
+                    dropCoordinates = transmitParentData($(positionToAttach).attr("id"));
+                    //console.log(initialCoordinates);
+                    //console.log(dropCoordinates); 
+                }
+            });
+
+            function transmitParentData(cellId) {
+				var coordinates = {
+					x: cellId[1],
+					y: cellId[3]
+				}				
+				return coordinates;
+            }
+        }
+    }
+
+    function Piece(type, color) {
+        this.type = type;
+        this.color = color;
+    }
+
+    //private function - creates 2d array (aka matrix)
+    function createArray(length) {
+        var arr = new Array(length || 0),
+            i = length;
+
+        if (arguments.length > 1) {
+            var args = Array.prototype.slice.call(arguments, 1);
+            while (i--) arr[length - 1 - i] = createArray.apply(this, args);
+        }	
+		
+        return arr;
+    }
+
+    return {
+        generateBoard: function () {
+            return new ChessBoard(); 
+        }
+    }
+})();
+

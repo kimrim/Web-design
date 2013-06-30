@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Chess</title>
+    <link href="styles/style.css" rel="stylesheet" />
+    <script src="scripts/jquery-1.10.1.js"></script>
+    <script src="scripts/jquery-ui.js"></script>
+    <script src="scripts/scoreboard.js"></script>
+    <script src="scripts/chess-script.js"></script>
+    <script src="scripts/pieces.js"></script>
+    <script src="scripts/APIs.js"></script>
+</head>
+<body>
+    <div id="fb-root"></div>
+
+
+    <div id="wrapper">
+        <div id="board"></div>
+        <div id="score-field"><p id="pieces">Taken:</p></div>
+    </div>
+    <script>
+        var testBoard = chessController.generateBoard();
+        var pieces = pieceController.generatePieces();
+        testBoard.init();
+        testBoard.initPieces(pieces);
+        testBoard.initDragNDrop();
+        
+    </script>
+    
+    <div class="fb-comments" data-href="http://telerikacademy.com/" data-width="470" data-num-posts="10"></div><br />
+    <div class="fb-like" data-href="http://telerikacademy.com/" data-send="true" data-width="450" data-show-faces="true"></div>
+
+     <script>
+         !function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');
+    </script>
+
+    <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://telerikacademy.com/" data-text="Play best chess game ever!">Tweet</a>
+
+</body>
+</html>

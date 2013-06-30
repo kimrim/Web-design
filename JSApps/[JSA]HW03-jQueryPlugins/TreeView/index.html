@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <style>
+        a {
+            text-decoration:none;
+        }
+        li {
+            margin-top:5px;
+        }
+        ul {
+            list-style-image:url("btn.png");            
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper"></div>
+    <script>
+        var topItems = 4;
+        var subOneItems = 3;
+        var subTwoItems = 2;
+
+        $("#wrapper").append("<ul class='tree'></ul>");
+
+        for (var i = 0; i < 4; i++) {
+            $("#wrapper ul.tree").append("<li class='top'><a href='#'>Item</a></li>");
+        }
+
+        $("ul.tree li.top").append("<ul></ul>");
+        for (var i = 0; i < subOneItems; i++) {
+            $("ul.tree li.top ul").append("<li class='subOne'><a href='#'>Sub Item 1</a></li>");
+        }
+
+        $("ul.tree li.subOne").append("<ul></ul>");
+        for (var i = 0; i < subTwoItems; i++) {
+            $("ul.tree li.subOne ul").append("<li class='subTwo'><a href='#'>Sub Item 2</a></li>");
+        }
+
+        (function ($) {
+            $.fn.treeView = function () {
+                var tree = $(this);
+
+                tree.find("ul").addClass("hidden").hide();
+
+                tree.find("a").on("click", function (ev) {
+                    ev.stopPropagation();
+                    ev.preventDefault();
+                    var child = $(this).siblings().first();
+                    if (child.hasClass("hidden")) {
+                        child.show();
+                        child.removeClass("hidden");
+                    }
+                    else {
+                        child.hide();
+                        child.addClass("hidden");
+                    }
+                });
+                
+                return this;
+            }
+        }(jQuery));
+
+        $(".tree").treeView();
+    </script>
+</body>
+</html>

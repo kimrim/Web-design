@@ -1,0 +1,18 @@
+﻿<html>
+<head>
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../QUnit/qunit-1.11.0.css">
+  <script type="text/javascript" src="../QUnit/qunit-1.11.0.js"></script>
+  <script type="text/javascript" src="../scripts/APIs.js"></script>
+  <script type="text/javascript" src="../scripts/chess-script.js"></script>
+  <script type="text/javascript" src="../scripts/jquery-1.10.1.js"></script>
+  <script type="text/javascript" src="../scripts/jquery-ui.js"></script>
+  <script type="text/javascript" src="../scripts/pieces.js"></script>
+  <script type="text/javascript" src="../scripts/scoreboard.js"></script>
+  <script type="text/javascript" src="chessboard-tests.js"></script>
+</head>
+<body>
+  <div id="qunit">
+  </div>
+</body>
+</html>

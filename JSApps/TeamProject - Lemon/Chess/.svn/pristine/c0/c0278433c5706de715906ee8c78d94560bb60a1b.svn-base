@@ -1,0 +1,344 @@
+﻿module("Pawn.validate");
+test("should validate white pawn moves at initial position",
+  function () {
+      var pieces = pieceController.generatePieces(); 
+
+      var isValidWPawnToE3 = pieces[6][4].validate(pieces, 5, 4);
+      var isValidWPawnToE4 = pieces[6][4].validate(pieces, 4, 4);
+
+      equal(isValidWPawnToE3, true, "pawn e2-e3 is a valid move");
+      equal(isValidWPawnToE4, true, "pawn e2-e4 is a valid move");
+  });
+test("should validate black pawn moves at initial position",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+
+      var isValidBPawnToA6 = pieces[1][0].validate(pieces, 2, 0);
+      var isValidBPawnToA5 = pieces[1][0].validate(pieces, 3, 0);
+
+      equal(isValidBPawnToA6, true, "pawn a7-a6 is a valid move");
+      equal(isValidBPawnToA5, true, "pawn a7-a5 is a valid move");
+  });
+test("should validate white pawn moves when they are not possible",
+  function () {
+      var pieces = pieceController.generatePieces();
+
+      var isValidWPawnToE2 = pieces[6][4].validate(pieces, 6, 4);
+      var isValidWPawnToE5 = pieces[6][4].validate(pieces, 3, 4);
+      var isValidWPawnToD2 = pieces[6][4].validate(pieces, 6, 3);
+      var isValidWPawnToD3 = pieces[6][4].validate(pieces, 5, 3);
+      var isValidWPawnToF2 = pieces[6][4].validate(pieces, 6, 5);
+      var isValidWPawnToF3 = pieces[6][4].validate(pieces, 5, 5);
+
+      equal(isValidWPawnToE2, false, "pawn e2-e2 is not a valid move");
+      equal(isValidWPawnToE5, false, "pawn e2-e5 is not a valid move");
+      equal(isValidWPawnToD2, false, "pawn e2-d2 is not a valid move");
+      equal(isValidWPawnToD3, false, "pawn e2-d3 is not a valid move");
+      equal(isValidWPawnToF2, false, "pawn e2-f2 is not a valid move");
+      equal(isValidWPawnToF3, false, "pawn e2-f3 is not a valid move");
+  });
+
+
+module("Knight.validate");
+test("should validate white knight moves at initial position",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 4, pieces[1][4], pieces);
+
+      var isValidKnightToE2 = pieces[7][6].validate(pieces, 6, 4);
+      var isValidKnightToF3 = pieces[7][6].validate(pieces, 5, 5);
+      var isValidKnightToH3 = pieces[7][6].validate(pieces, 5, 7);
+
+      equal(isValidKnightToE2, true, "knight Ng1-e2 is a valid move");
+      equal(isValidKnightToF3, true, "knight Ng1-f3 is a valid move");
+      equal(isValidKnightToH3, true, "knight Ng1-h3 is a valid move");
+  });
+test("should validate black knight moves at initial position",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 4, pieces[1][4], pieces);
+
+      var isValidKnightToE7 = pieces[0][6].validate(pieces, 1, 4);
+      var isValidKnightToF6 = pieces[0][6].validate(pieces, 2, 5);
+      var isValidKnightToH6 = pieces[0][6].validate(pieces, 2, 7);
+
+      equal(isValidKnightToE7, true, "knight Ng8-e7 is a valid move");
+      equal(isValidKnightToF6, true, "knight Ng8-f6 is a valid move");
+      equal(isValidKnightToH6, true, "knight Ng8-h6 is a valid move");
+  });
+test("should validate white knight moves when ther are not possible",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(5, 5, pieces[6][5], pieces);
+      // move e7-e5
+      pieceController.makeMove(2, 5, pieces[1][5], pieces);
+
+      var isValidKnightToE2 = pieces[7][6].validate(pieces, 6, 4);
+      var isValidKnightToF3 = pieces[7][6].validate(pieces, 5, 5);
+
+      equal(isValidKnightToE2, false, "knight Ng1-e2 is not a valid move");
+      equal(isValidKnightToF3, false, "knight Ng1-f3 is not a valid move");
+  });
+
+
+module("Bishop.validate");
+test("should validate white bishop moves on Bf1-a6 diagonal",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+       // move e7-e5
+      pieceController.makeMove(3, 4, pieces[1][4], pieces);
+
+      var isValidWBishopToE2 = pieces[7][5].validate(pieces, 6, 4);
+      var isValidWBishopToD3 = pieces[7][5].validate(pieces, 5, 3);
+      var isValidWBishopToC4 = pieces[7][5].validate(pieces, 4, 2);
+      var isValidWBishopToB5 = pieces[7][5].validate(pieces, 3, 1);
+      var isValidWBishopToA6 = pieces[7][5].validate(pieces, 2, 0);
+
+      equal(isValidWBishopToE2, true, "bishop Bf1-e2 is a valid move");
+      equal(isValidWBishopToD3, true, "bishop Bf1-d3 is a valid move");
+      equal(isValidWBishopToC4, true, "bishop Bf1-c4 is a valid move");
+      equal(isValidWBishopToB5, true, "bishop Bf1-b5 is a valid move");
+      equal(isValidWBishopToA6, true, "bishop Bf1-a6 is a valid move");
+  });
+test("should validate black bishop moves on Bf8-a3 diagonal",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 4, pieces[1][4], pieces);
+      // move Bf1-c4
+      pieceController.makeMove(4, 2, pieces[7][5], pieces);
+
+      var isValidBBishopToE7 = pieces[0][5].validate(pieces, 1, 4);
+      var isValidBBishopToD6 = pieces[0][5].validate(pieces, 2, 3);
+      var isValidBBishopToC5 = pieces[0][5].validate(pieces, 3, 2);
+      var isValidBBishopToB4 = pieces[0][5].validate(pieces, 4, 1);
+      var isValidBBishopToA3 = pieces[0][5].validate(pieces, 5, 0);
+
+      equal(isValidBBishopToE7, true, "bishop Bf1-e7 is a valid move");
+      equal(isValidBBishopToD6, true, "bishop Bf1-d6 is a valid move");
+      equal(isValidBBishopToC5, true, "bishop Bf1-c5 is a valid move");
+      equal(isValidBBishopToB4, true, "bishop Bf1-b4 is a valid move");
+      equal(isValidBBishopToA3, true, "bishop Bf1-a3 is a valid move");
+  });
+test("should validate white bishop moves when they are not possible",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 4, pieces[1][4], pieces);
+
+      var isValidWBishopToE1 = pieces[7][5].validate(pieces, 7, 4);
+      var isValidWBishopToF1 = pieces[7][5].validate(pieces, 7, 5);
+      var isValidWBishopToF2 = pieces[7][5].validate(pieces, 6, 5);
+      var isValidWBishopToG1 = pieces[7][5].validate(pieces, 7, 6);
+      var isValidWBishopToG2 = pieces[7][5].validate(pieces, 6, 6);
+      var isValidWBishopToH3 = pieces[7][5].validate(pieces, 5, 7);
+
+      equal(isValidWBishopToE1, false, "bishop Bf1-e2 is not a valid move");
+      equal(isValidWBishopToF1, false, "bishop Bf1-d3 is not a valid move");
+      equal(isValidWBishopToF2, false, "bishop Bf1-c4 is not a valid move");
+      equal(isValidWBishopToG1, false, "bishop Bf1-b5 is not a valid move");
+      equal(isValidWBishopToG2, false, "bishop Bf1-a6 is not a valid move");
+      equal(isValidWBishopToH3, false, "bishop Bf1-a6 is not a valid move");
+  });
+
+
+module("Rook.validate");
+test("should validate white rook moves",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move a2-a4
+      pieceController.makeMove(4, 0, pieces[6][0], pieces);
+      // move a7-a5
+      pieceController.makeMove(3, 0, pieces[1][0], pieces);
+      // move Nb1-c3
+      pieceController.makeMove(5, 2, pieces[7][1], pieces);
+      // move b8-c6
+      pieceController.makeMove(2, 2, pieces[0][1], pieces);
+
+      var isValidWRookToB1 = pieces[7][0].validate(pieces, 7, 1);
+      var isValidWRookToA2 = pieces[7][0].validate(pieces, 6, 0);
+      var isValidWRookToA3 = pieces[7][0].validate(pieces, 5, 0);
+
+      equal(isValidWRookToB1, true, "rook Ra1-b1 is a valid move");
+      equal(isValidWRookToA2, true, "rook Ra1-a2 is a valid move");
+      equal(isValidWRookToA3, true, "rook Ra1-a3 is a valid move");
+  });
+test("should validate black rook moves",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move a2-a4
+      pieceController.makeMove(4, 0, pieces[6][0], pieces);
+      // move a7-a5
+      pieceController.makeMove(3, 0, pieces[1][0], pieces);
+      // move Nb1-c3
+      pieceController.makeMove(5, 2, pieces[7][1], pieces);
+      // move b8-c6
+      pieceController.makeMove(2, 2, pieces[0][1], pieces);
+      // move b2-b4
+      pieceController.makeMove(5, 1, pieces[6][1], pieces);
+
+      var isValidWRookToB8 = pieces[0][0].validate(pieces, 0, 1);
+      var isValidWRookToA7 = pieces[0][0].validate(pieces, 1, 0);
+      var isValidWRookToA6 = pieces[0][0].validate(pieces, 2, 0);
+
+      equal(isValidWRookToB8, true, "rook Ra8-b8 is a valid move");
+      equal(isValidWRookToA7, true, "rook Ra8-a7 is a valid move");
+      equal(isValidWRookToA6, true, "rook Ra8-a6 is a valid move");
+  });
+test("should validate white rook moves they are not possible",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move a2-a4
+      pieceController.makeMove(4, 0, pieces[6][0], pieces);
+      // move a7-a5
+      pieceController.makeMove(3, 0, pieces[1][0], pieces);
+      // move Nb1-c3
+      pieceController.makeMove(5, 2, pieces[7][1], pieces);
+      // move b8-c6
+      pieceController.makeMove(2, 2, pieces[0][1], pieces);
+
+      var isValidWRookToC1 = pieces[7][0].validate(pieces, 7, 2);
+      var isValidWRookToB2 = pieces[7][0].validate(pieces, 6, 1);
+      var isValidWRookToA1 = pieces[7][0].validate(pieces, 7, 0);
+      var isValidWRookToA4 = pieces[7][0].validate(pieces, 4, 0);
+      var isValidWRookToA5 = pieces[7][0].validate(pieces, 3, 0);
+      var isValidWRookToD4 = pieces[7][0].validate(pieces, 4, 3);
+
+      equal(isValidWRookToC1, false, "rook Ra1-c1 is not a valid move");
+      equal(isValidWRookToB2, false, "rook Ra1-b2 is not a valid move");
+      equal(isValidWRookToA1, false, "rook Ra1-a1 is not a valid move");
+      equal(isValidWRookToA4, false, "rook Ra1-a4 is not a valid move");
+      equal(isValidWRookToA5, false, "rook Ra1-a5 is not a valid move");
+      equal(isValidWRookToD4, false, "rook Ra1-d4 is not a valid move");
+  });
+
+
+module("Queen.validate");
+test("should validate white queen moves on Qd1-h5 diagonal",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 4, pieces[1][4], pieces);
+
+      var isValidWQueenToE2 = pieces[7][3].validate(pieces, 6, 4);
+      var isValidWQueenToF3 = pieces[7][3].validate(pieces, 5, 5);
+      var isValidWQueenToG4 = pieces[7][3].validate(pieces, 4, 6);
+      var isValidWQueenToH5 = pieces[7][3].validate(pieces, 3, 7);
+
+      equal(isValidWQueenToE2, true, "queen Qd1-e2 is a valid move");
+      equal(isValidWQueenToF3, true, "queen Qd1-f3 is a valid move");
+      equal(isValidWQueenToG4, true, "queen Qd1-g4 is a valid move");
+      equal(isValidWQueenToH5, true, "queen Qd1-h5 is a valid move");
+  });
+test("should validate black queen moves on Qd8-h4 diagonal",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 4, pieces[1][4], pieces);
+      // move d2-d3
+      pieceController.makeMove(5, 3, pieces[6][3], pieces);
+
+      var isValidBQueenToE7 = pieces[0][3].validate(pieces, 1, 4);
+      var isValidBQueenToF6 = pieces[0][3].validate(pieces, 2, 5);
+      var isValidBQueenToG5 = pieces[0][3].validate(pieces, 3, 6);
+      var isValidBQueenToH4 = pieces[0][3].validate(pieces, 4, 7);
+
+      equal(isValidBQueenToE7, true, "queen Qd8-e7 is a valid move");
+      equal(isValidBQueenToF6, true, "queen Qd8-f6 is a valid move");
+      equal(isValidBQueenToG5, true, "queen Qd8-g5 is a valid move");
+      equal(isValidBQueenToH4, true, "queen Qd8-h4 is a valid move");
+  });
+test("should validate white queen moves when they are not posiible",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 4, pieces[1][4], pieces);
+
+      var isValidWQueenToC1 = pieces[7][3].validate(pieces, 7, 2);
+      var isValidWQueenToC2 = pieces[7][3].validate(pieces, 6, 2);
+      var isValidWQueenToD1 = pieces[7][3].validate(pieces, 7, 3);
+      var isValidWQueenToD2 = pieces[7][3].validate(pieces, 6, 3);
+      var isValidWQueenToD3 = pieces[7][3].validate(pieces, 5, 3);
+      var isValidWQueenToE1 = pieces[7][3].validate(pieces, 7, 4);
+      var isValidWQueenToA4 = pieces[7][3].validate(pieces, 4, 0);
+
+      equal(isValidWQueenToC1, false, "queen Qd1-c1 is not a valid move");
+      equal(isValidWQueenToC2, false, "queen Qd1-c2 is not a valid move");
+      equal(isValidWQueenToD1, false, "queen Qd1-d1 is not a valid move");
+      equal(isValidWQueenToD2, false, "queen Qd1-d2 is not a valid move");
+      equal(isValidWQueenToD3, false, "queen Qd1-d3 is not a valid move");
+      equal(isValidWQueenToE1, false, "queen Qd1-e1 is not a valid move");
+      equal(isValidWQueenToA4, false, "queen Qd1-a4 is not a valid move");
+  });
+
+
+module("King.validate");
+test("should validate white king move Ke1-f2",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 5, pieces[6][5], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 5, pieces[1][5], pieces);
+
+      var isValidWKingToF2 = pieces[7][4].validate(pieces, 6, 5);
+
+      equal(isValidWKingToF2, true, "king Ke1-f2 is a valid move");
+  });
+test("should validate black king move Ke8-f7",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 5, pieces[6][5], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 5, pieces[1][5], pieces);
+      // move d2-d3
+      pieceController.makeMove(5, 3, pieces[6][3], pieces);
+
+      var isValidBKingToF7 = pieces[0][4].validate(pieces, 1, 5);
+
+      equal(isValidBKingToF7, true, "king Ke8-f7 is a valid move");
+  });
+test("should validate white king moves when they are not possible",
+  function () {
+      var pieces = pieceController.generatePieces();
+      // move e2-e4
+      pieceController.makeMove(4, 4, pieces[6][4], pieces);
+      // move e7-e5
+      pieceController.makeMove(3, 4, pieces[1][4], pieces);
+
+      var isValidWKingToD1 = pieces[7][4].validate(pieces, 7, 3);
+      var isValidWKingToD2 = pieces[7][4].validate(pieces, 6, 3);
+      //var isValidWKingToE3 = pieces[7][4].validate(pieces, 5, 4);
+      var isValidWKingToE1 = pieces[7][4].validate(pieces, 7, 4);
+      var isValidWKingToF1 = pieces[7][4].validate(pieces, 7, 5);
+      var isValidWKingToF2 = pieces[7][4].validate(pieces, 6, 5);
+
+      equal(isValidWKingToD1, false, "king Ke1-d1 is a valid move");
+      equal(isValidWKingToD2, false, "king Ke1-d2 is a valid move");
+      //equal(isValidWKingToE3, false, "king Ke1-e3 is a valid move");
+      equal(isValidWKingToE1, false, "king Ke1-e1 is a valid move");
+      equal(isValidWKingToF1, false, "king Ke1-f1 is a valid move");
+      equal(isValidWKingToF2, false, "king Ke1-f2 is a valid move");
+  });
