@@ -16,7 +16,7 @@ Classes have name, capacity of students, a set of students and a form-teacher (Ğ
 - When an image from the thumbnails is clicked
 - The slider must have buttons for prev/next image
 
-4. Create a favorite sites bar
+4.Create a favorite sites bar
 - The favorite sites bar should keep a set of urls and set of folders
 - Folders have a title and set of urls
 - Urls have a title and a url
