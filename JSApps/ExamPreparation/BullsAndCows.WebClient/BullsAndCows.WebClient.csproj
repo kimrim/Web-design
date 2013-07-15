@@ -60,10 +60,11 @@
     <Content Include="index.html" />
     <Content Include="packages.config" />
     <None Include="Scripts\jquery-2.0.2.intellisense.js" />
-    <Content Include="script.js" />
+    <Content Include="Scripts\http-requester.js" />
     <Content Include="Scripts\class.js" />
     <Content Include="Scripts\jquery-2.0.2.js" />
     <Content Include="Scripts\jquery-2.0.2.min.js" />
+    <Content Include="Scripts\persister.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-2.0.2.min.map" />
   </ItemGroup>
