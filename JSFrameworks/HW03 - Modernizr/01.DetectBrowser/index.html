@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>UA parser</title>
+    <script src="Scripts/jquery-2.0.3.js"></script>
+    <script src="Scripts/ua-parser.js"></script>
+    <script src="Scripts/modernizr.dev.86527.js"></script>
+    <style>
+        #ua-info {
+            border:1px solid #0917c5;
+            width:auto;
+        }
+    </style>
+</head>
+<body>
+    <ul id="ua-info"><strong>UA Info:</strong>
+
+    </ul>
+    <table id="features">
+        <thead>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <script>
+        //Detect user info
+        var result = UAParser();
+
+        $("#ua-info").append("<li>" + "name: " + result.browser.name + ", major: " + result.browser.major
+            + ", version: " + result.browser.version + "</li>");        // {name: "Chromium", major: "15", version: "15.0.874.106"}
+        $("#ua-info").append("<li>" + "model: " + result.device.model + ", type: " + result.device.type + "</li>");          // {model: undefined, type: undefined, vendor: undefined}
+        $("#ua-info").append("<li>" + "name: " + result.os.name + ", version: " + result.os.version + "</li>");                // {name: "Ubuntu", version: "11.10"}
+        $("#ua-info").append("<li>" + "engine: " + result.engine.name + "</li>");    // "WebKit"
+        $("#ua-info").append("<li>" + "cpu architecture: " + result.cpu.architecture + "</li>");   // "amd64"
+
+        // Populate the #features table when the document is ready
+        jQuery(function ($) {
+            var target = $('#features > tbody');
+            var traverse = function (object, prefix) {
+                prefix = prefix ? prefix + '.' : '';
+                for (property in object) {
+                    if (typeof object[property] == 'object') {
+                        traverse(object[property], prefix + property);
+                    } else if (typeof object[property] == 'boolean') {
+                        var
+                        tr = $('<tr />'),
+                        name = $('<th />', {
+                            text: prefix + property
+                        }),
+                        value = $('<td />', {
+                            text: object[property] ? 'Yes' : 'Nope'
+                        });
+                        target.append(tr.append(name).append(value));
+                    }
+                }
+            };
+            traverse(Modernizr, 'Modernizr');
+        });
+    </script>
+</body>
+</html>

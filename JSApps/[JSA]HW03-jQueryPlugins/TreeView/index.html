@@ -3,65 +3,78 @@
 <head>
     <title></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
-    <style>
-        a {
-            text-decoration:none;
-        }
-        li {
-            margin-top:5px;
-        }
-        ul {
-            list-style-image:url("btn.png");            
-        }
-    </style>
-</head>
-<body>
-    <div id="wrapper"></div>
     <script>
-        var topItems = 4;
-        var subOneItems = 3;
-        var subTwoItems = 2;
+        function addTreeItem(subLevel, elements) {
+            var parentList;
+			var elementHtmlStart = "<div class='node'><img src='btn-collapsed.png'/><a href='#'>";
+			var elementHtmlEnd = "</a></div></li>";
+            if (subLevel == 0) {
+                parentList = $("#wrapper ul.tree");
 
-        $("#wrapper").append("<ul class='tree'></ul>");
-
-        for (var i = 0; i < 4; i++) {
-            $("#wrapper ul.tree").append("<li class='top'><a href='#'>Item</a></li>");
-        }
-
-        $("ul.tree li.top").append("<ul></ul>");
-        for (var i = 0; i < subOneItems; i++) {
-            $("ul.tree li.top ul").append("<li class='subOne'><a href='#'>Sub Item 1</a></li>");
-        }
-
-        $("ul.tree li.subOne").append("<ul></ul>");
-        for (var i = 0; i < subTwoItems; i++) {
-            $("ul.tree li.subOne ul").append("<li class='subTwo'><a href='#'>Sub Item 2</a></li>");
+                for (var i = 0; i < elements.length; i++) {                    
+                    $(parentList).append("<li class='top'>" + elementHtmlStart + elements[i] + elementHtmlEnd);
+                }
+            }
+            else {
+                var parentName = subLevel == 1 ? "top" : "sub" + (subLevel-1);
+                parentList = $("ul.tree li." + parentName);
+                parentList.append("<ul></ul>");
+                for (var j = 0; j < elements.length; j++) {                    
+                    $("ul.tree li." + parentName + " ul").append("<li class='sub" + subLevel + "'>" + elementHtmlStart + elements[j] + elementHtmlEnd);
+                }
+            }
+            
         }
 
         (function ($) {
             $.fn.treeView = function () {
                 var tree = $(this);
 
-                tree.find("ul").addClass("hidden").hide();
+                tree.find("ul").hide();
 
-                tree.find("a").on("click", function (ev) {
+                tree.find("div.node").on("click", function (ev) {
                     ev.stopPropagation();
                     ev.preventDefault();
                     var child = $(this).siblings().first();
-                    if (child.hasClass("hidden")) {
-                        child.show();
-                        child.removeClass("hidden");
-                    }
-                    else {
-                        child.hide();
-                        child.addClass("hidden");
-                    }
+                    child.toggle();
+					var image = $(this).children().first();
+					if(image.attr("src") === "btn-collapsed.png"){
+						image.attr("src","btn-expanded.png");
+					}
+					else{
+						image.attr("src","btn-collapsed.png");
+					}
                 });
-                
+
                 return this;
             }
         }(jQuery));
+    </script>
+    <style>
+        a {
+            text-decoration:none;
+			margin-left:5px;
+        }
+		ul {
+            list-style-type:none;         
+        }
+        li {
+            margin-top:5px;
+			display:block;				
+        }
+			li div {
+				display: inline-block;
+			}
+    </style>
+</head>
+<body>
+    <div id="wrapper"></div>    
+    <script>
+        $("#wrapper").append("<ul class='tree'></ul>");
 
+        addTreeItem(0, ["TopItem1", "TopItem2", "TopItem3"]);
+        addTreeItem(1, ["SubItem1", "SubItem2"]);
+        addTreeItem(2, ["SubItem11", "SubItem12", "SubItem13"]);
         $(".tree").treeView();
     </script>
 </body>

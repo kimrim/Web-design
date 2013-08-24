@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-1.9.1.min.js"></script>
+    <script src="Scripts/modernizr.dev.86527.js"></script>
+    <script src="Scripts/excanvas.js"></script>
+</head>
+<body>
+    <div id="wrapper">
+        <canvas id="canvas" width="500" height="500"></canvas>
+    </div>
+    <script>
+        Modernizr.load({
+            test: Modernizr.canvas,
+            nope: ['Scripts/excanvas.js'],
+            complete: function () {
+                var canvasField = document.getElementById("canvas");
+                var context = canvasField.getContext("2d");
+                context.fillStyle = "#FF0000";
+                context.fillRect(0, 0, 300, 200);
+            }
+        });
+    </script>
+</body>
+</html>

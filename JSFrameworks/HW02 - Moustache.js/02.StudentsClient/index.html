@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/jquery-2.0.3.js"></script>
+    <script src="Scripts/class.js"></script>
+    <script src="Scripts/mustache.js"></script>
+    <script src="Scripts/http-requester.js"></script>
+    <script src="Scripts/clientScript.js"></script>
+    <style>
+        #content ul#students {
+            border:1px solid black;
+            margin-right:10px;
+            list-style-type:none;
+            width:150px;
+            float:left;
+        }
+
+            #content ul#students li {
+                display:block;
+            }
+
+        #content div {
+            float:left;
+        }
+    </style>
+</head>
+<body>
+    <script type="x-mustache-template" id="students-template">
+					<li>
+						<a href="#">{{fname}} {{lname}}</a>							
+					</li>
+	</script>
+    <script type="x-mustache-template" id="marks-template">	
+			<strong>Marks of student: {{}}</strong>
+			<ul>
+				{{#marks}} 
+					<li>
+						{{subject}}: <strong>{{value}}</strong>							
+					</li>
+				{{/marks}}
+				{{^marks}}	   
+					<li>
+						This student has no marks, yet	  						
+					</li>
+				{{/marks}}
+			</ul>			
+	</script>
+    <button id="get-students">Get Students</button>
+    <div id="content"></div>
+    <script>
+        var Student = Class.create({
+            init: function (fname, lname, grade, age, marks) {
+                this.fname = fname;
+                this.lname = lname;
+                this.grade = grade;
+                this.age = age;
+                this.marks = marks;
+            },
+            fullname: function () {
+                return this.fname + " " + this.lname;
+            }
+        });
+
+        var Mark = Class.create({
+            init: function (subject, value) {
+                this.subject = subject;
+                this.value = value;
+            }
+        });
+
+        $("#get-students").on("click", function () {
+            if (!requestCompleted) {
+                requestCompleted = true;
+                getData("http://localhost:62436/api/students");
+            }
+        });
+
+        $("#content").on("click", "li a", function () {
+            var names = $(this).text().split(" ");
+            $("#marks-container").empty();
+
+            for (var i = 0; i < allStudents.length; i++) {
+                if (allStudents[i].fname == names[0] && allStudents[i].lname == names[1]) {
+                    $("#marks-container").append("<div id='student-marks'>");
+                    renderStudentMarks(allStudents[i]);
+                    $("#marks-container").append("</div>");
+                    break;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
