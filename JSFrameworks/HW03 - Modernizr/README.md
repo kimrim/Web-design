@@ -1,0 +1,3 @@
+1. Create a HTML page to display the current Web browser and the supported and not supported HTML5 and CSS3 features. Use ua-parser-js to detect the browser type, version, OS and device. Use Modernizr.js to detect the features (see an example here: http://fiddle.jshell.net/ncuesta/NHTyT/show/).
+2. Create a simple HTML5 application by choice that uses Canvas, GeoLocation and LocalStorage APIs. Using Modernizr.load() provide fallbacks for older browsers. Use polyfills by choice (e.g. https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills). Test in old browsers.
+3. Using HTML5 and CSS3 create a page to display a date field with a date picker. Use Modernizr to load the jQueryUI date picker only if the browser does not provide a native date picker.
