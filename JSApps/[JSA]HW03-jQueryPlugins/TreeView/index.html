@@ -6,7 +6,8 @@
     <script>
         function addTreeItem(subLevel, elements) {
             var parentList;
-			var elementHtmlStart = "<div class='node'><img src='btn-collapsed.png'/><a href='#'>";
+			var elementHtmlStart = "<div class='node'><img src='btn-collapsed.png' />" +
+													"<img src='btn-expanded.png' class='no-focus' /><a href='#'>";
 			var elementHtmlEnd = "</a></div></li>";
             if (subLevel == 0) {
                 parentList = $("#wrapper ul.tree");
@@ -22,8 +23,7 @@
                 for (var j = 0; j < elements.length; j++) {                    
                     $("ul.tree li." + parentName + " ul").append("<li class='sub" + subLevel + "'>" + elementHtmlStart + elements[j] + elementHtmlEnd);
                 }
-            }
-            
+            }            
         }
 
         (function ($) {
@@ -35,14 +35,19 @@
                 tree.find("div.node").on("click", function (ev) {
                     ev.stopPropagation();
                     ev.preventDefault();
-                    var child = $(this).siblings().first();
-                    child.toggle();
+                    var sub = $(this).siblings().first();
+					if(sub.length == 0){
+						return;
+					}
+                    sub.toggle();
 					var image = $(this).children().first();
-					if(image.attr("src") === "btn-collapsed.png"){
-						image.attr("src","btn-expanded.png");
+					if(image.hasClass("no-focus")){
+						image.removeClass("no-focus");
+						image.siblings("img").addClass("no-focus");
 					}
 					else{
-						image.attr("src","btn-collapsed.png");
+						image.addClass("no-focus");
+						image.siblings("img").removeClass("no-focus");
 					}
                 });
 
@@ -65,6 +70,7 @@
 			li div {
 				display: inline-block;
 			}
+		img.no-focus {display:none;}
     </style>
 </head>
 <body>
