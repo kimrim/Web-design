@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/libs/require.js" data-main="Scripts/app-config"></script>
+    <style>
+        .selected {
+            display: block;
+             background: #D5DCEE;
+        }
+        ul {
+            list-style-type: none;
+        }
+            ul#student-list {
+                float:left;
+            }
+                ul#student-list li div{
+                    height:70px;
+                    padding-top:10px;
+                }
+
+        li {
+            border: 1px solid black;
+            width: 260px;
+            text-align: center;
+            cursor: pointer;
+        }
+            li:hover {
+                background: #D5DCEE;
+            }
+        #marks-container {
+            display: inline-block;
+            position: absolute;
+            margin-top: 15px;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <script type="x-mustache-template" id="student-template">	
+        <div>
+            <strong>{{firstName}} {{lastName}}</strong> <br />
+            <strong>Grade: {{grade}}</strong> <br />
+            <strong>Age: {{age}}</strong> <br />
+        </div> 
+	</script>
+    <script type="x-mustache-template" id="marks-template">	
+		<strong>Marks of student</strong>
+			<ul>
+				{{#.}} 
+					<li>
+						{{subject}}: <strong>{{value}}</strong>							
+					</li>
+				{{/.}}
+				{{^.}}	   
+					<li>
+						This student has no marks, yet	  						
+					</li>
+				{{/.}}
+			</ul>			
+	</script>
+    <div id="wrapper"></div>
+</body>
+</html>
