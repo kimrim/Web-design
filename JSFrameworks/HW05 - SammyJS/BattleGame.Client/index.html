@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="Scripts/libs/jquery-2.0.3.js"></script>
+    <script src="Scripts/libs/require.js" data-main="Scripts/app"></script>
+    <style>
+        #wrapper {
+            width: 70%;
+            margin: 0 auto;
+            text-align: center;
+            border: 1px solid black;
+            margin-top: 50px;
+            font: normal 14px Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+        }
+
+            #wrapper > header {
+            }
+
+        #user-nickname {
+            display: inline-block;
+            padding: 10px;
+            font-weight: bold;
+            font-size:1.1em;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 5px 15px;
+            border: 1px solid #444;
+            border-radius: 3px;
+            text-decoration: none;
+            color: black;
+            background-color: #ccc;
+        }
+
+        #main-content{
+            height: 60px;
+
+            zoom:1;
+        }
+
+        #game-holder{  
+            margin-top: 20px;          
+            display:inline-block;
+            text-align:right;
+        }
+
+            .button.selected {
+                font-weight: bold;
+            }
+
+        .game-list {
+            list-style-type: none;
+            display: inline-block;
+            text-align: center;
+        }
+        #active-games-container a, #open-games-container a{
+            color: #222;
+            font-weight:bold;
+            text-decoration:none;
+        }
+            #active-games-container a:hover, #open-games-container a:hover {
+                text-decoration:underline;
+            }
+
+        #active-games-container .full{
+            color:#bbb;
+        }
+        #game-state{
+            display:inline-block;
+            text-align:center;
+            margin:0 auto;
+        }
+
+        #game-state .guess-holder{
+            text-align:center;
+            margin:0 auto;
+        }
+
+        li{
+            list-style: none;
+        }
+
+        .menu-btn {
+            border: 1px solid black;
+            border-radius: 5px;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        #open-games-title {
+            text-align: center;
+        }
+        .important{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script type="x-mustache-template" id="create-game-template">	
+            <div>
+                Title: <input type="text" id="tb-create-title" />
+                Password: <input type="password" id="tb-create-pass" />
+                <button id="btn-create-game">Create game</button>
+                <div id="game-create-error-messages"></div>
+            </div>					
+    </script>
+
+    <script type="x-mustache-template" id="open-games-template">
+        <header>
+        <h3 id="open-games-title">Open Games</h3>	
+        </header>
+        <ul class="game-list open-games">
+        {{#.}} 
+            <li id={{id}}>
+                <a href="#" >{{title}}</a>
+                <span> by {{creator}}</span>
+                <div id="started-game-messages"></div>
+            </li>
+        {{/.}} 
+      </ul>			
+    </script>
+
+     <script type="x-mustache-template" id="my-games-template">
+        <header>
+        <h3>My Games</h3>	
+        </header>
+       <ul class="game-list active-games">
+            {{#.}} 
+            <li class="game-status-"{{status}}" data-game-id="{{id}}" data-creator="{{creator}}">
+                <span>{{status}}</span>
+                <a href="#" class="btn-active-game">{{title}}</a>
+                <span id="creator"> by {{creator}}</span>
+            </li>
+            {{/.}} 
+        </ul>	
+    </script> 
+    <div id="wrapper">
+        <header>
+            <h1>Telerik Academy Battle Game</h1>
+        </header>
+        <div id="main-content"></div>
+        <div id="game-holder"></div>
+        <div id="messages-holder"></div>
+    </div>
+</body>
+</html>

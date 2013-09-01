@@ -1,0 +1,12 @@
+﻿<div class="container">
+    <fieldset class="form-create-post">
+        <legend class="form-create-post-heading">New post</legend>
+        <div class="alert alert-warning alert-box" style="display: none;">
+            <strong>Warning!</strong> <span class="alert-content"></span>
+        </div>
+        <input data-bind="value: title" type="text" class="form-control" placeholder="Title"/>
+        <input data-bind="value: tags" type="text" class="form-control" placeholder="Tags (separated by comma)"/>
+        <textarea data-bind="value: text" class="form-control" rows="7">Content...</textarea>
+        <button data-bind="click: create" class="btn btn-lg btn-primary btn-block btn-submit">Create</button>
+    </fieldset>
+</div>

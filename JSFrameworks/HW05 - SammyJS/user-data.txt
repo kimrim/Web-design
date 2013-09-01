@@ -1,0 +1,13 @@
+register: 
+{
+   "username": "stavri",
+   "nickname": "Bai Stavri",
+   "authCode": "96b828b4cc79f50bf8faef6e7b4a1dcfb356dea6"
+}
+
+response:
+{
+   "sessionKey": "25sxxP0QGUNI2GzKwe31hhuO93a07yXfHV5cgb22OMhomOiwOT",
+   "nickname": "Bai Stavri"
+}
+

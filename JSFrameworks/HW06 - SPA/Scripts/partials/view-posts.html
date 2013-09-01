@@ -1,0 +1,26 @@
+﻿<div class="container">
+    <fieldset>
+        <legend>Search by title</legend>
+        <input type="text" id="search-titles"/>
+        <button onclick="location.href = '\#/posts/search/' + ($('#search-titles').val())">Search</button>
+    </fieldset>
+    <h3>Open topics:</h3>
+    <ul data-template="post-template" data-bind="source: posts"></ul>
+
+    <script type="text/x-kendo-template" id="post-template">
+        <li class="post-header">            
+            <strong>Title: </strong>
+            <a data-bind="attr: {id: Id}" onclick="location.href='\#/posts/' + this.id;">
+                <span data-bind="text: Title"></span>
+            </a><br />            
+            <strong>Tags: </strong><ul data-template="tags-template" data-bind="source: Tags"></ul>
+        </li>
+    </script>
+
+    <script type="text/x-kendo-template" id="tags-template">
+        <li class="post-tag" style="display: inline-block;">
+            <a><span data-bind="text: name"></span></a>           
+        </li>
+    </script>
+        
+</div>

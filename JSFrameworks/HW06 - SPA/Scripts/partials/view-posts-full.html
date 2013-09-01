@@ -1,0 +1,17 @@
+﻿<div class="container">
+    <div data-template="post-full-template" data-bind="source: post"></div>
+
+    <script type="text/x-kendo-template" id="post-full-template">
+        <div id="current-post">
+            <span data-bind="text: Title"></span><br />
+            <strong>Tags: </strong><ul data-template="tags-template" data-bind="source: Tags"></ul>
+            <p id="post-text" data-bind="text: Content"></p>
+        </div>
+    </script>
+
+    <script type="text/x-kendo-template" id="tags-template">
+        <li style="display: inline-block;">
+            <a><span data-bind="text: name"></span></a>           
+        </li>
+    </script>
+</div>
